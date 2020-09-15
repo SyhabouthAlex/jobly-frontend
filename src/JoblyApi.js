@@ -1,8 +1,6 @@
 import axios from "axios";
 import { TOKEN_STORAGE_ID } from "./App.js"
 
-const URL = process.env.URL;
-
 class JoblyApi {
     static async request(endpoint, paramsOrData = {}, verb = "get") {
       paramsOrData._token = localStorage.getItem(TOKEN_STORAGE_ID);
@@ -10,7 +8,7 @@ class JoblyApi {
       try {
         return (await axios({
           method: verb,
-          url: `${URL}/${endpoint}`,
+          url: `https://jobly-back.herokuapp.com/${endpoint}`,
           [verb === "get" ? "params" : "data"]: paramsOrData})).data;
       }
   
