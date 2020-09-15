@@ -4,7 +4,7 @@ import { TOKEN_STORAGE_ID } from "./App.js"
 class JoblyApi {
     static async request(endpoint, paramsOrData = {}, verb = "get") {
       paramsOrData._token = localStorage.getItem(TOKEN_STORAGE_ID);
-      
+      console.log(`https://jobly-back.herokuapp.com/${endpoint}`);
       try {
         return (await axios({
           method: verb,
